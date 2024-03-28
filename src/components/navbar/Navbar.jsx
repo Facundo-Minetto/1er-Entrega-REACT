@@ -1,4 +1,4 @@
-import { cartWidget } from "../pages/cart/cartWidget";
+import { CartWidget } from "../pages/cart/CartWidget";
 export const Navbar = () => {
   return (
     <div>
@@ -35,8 +35,30 @@ export const Navbar = () => {
                   Guia de talles
                 </a>
               </li>
-              <li>
-                <cartWidget />
+            </ul>
+            <CartWidget />
+          </div>
+          <div class="categorias">
+            <ul>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Remeras
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Buzos
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Jeans
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Botas
+                </a>
               </li>
             </ul>
           </div>
