@@ -1,0 +1,38 @@
+export let products = [
+  {
+    id: 1,
+    title: "Buzo Nike",
+    price: 12432,
+    description: "este es el mejor",
+    img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1686581567/images_teykwq.jpg",
+    stock: 12,
+    category: "buzos",
+  },
+  {
+    id: 2,
+    title: "Remera Pull&Bear",
+    price: 14500,
+    stock: 5,
+    description: "Muy comoda",
+    category: "remeras",
+    img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669430010/foc364fsakkzmausrovn.jpg",
+  },
+  {
+    id: 3,
+    title: "Remera Pull&Bear White",
+    price: 19000,
+    stock: 3,
+    description: "Remera para toda ocasion",
+    category: "remeras",
+    img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669430165/images_lujpmr.jpg",
+  },
+  {
+    id: 4,
+    title: "Buzo H&M",
+    price: 17800,
+    stock: 5,
+    description: "Buzo comodisimo para el dia a dia",
+    category: "buzos",
+    img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669430220/rtokwmt3j03bblbfhwhb.jpg",
+  },
+];
