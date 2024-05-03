@@ -1,11 +1,21 @@
+import { useContext } from "react";
 import Cart from "./Cart";
+import { CartContext } from "../../../context/CartContext";
 
 const CartContainer = () => {
-  console.log("logica");
+  const { cart, clearCart, deleteById, getTotalPrice, clearCartAlert } =
+    useContext(CartContext);
+  let total = getTotalPrice();
 
-  let productosAgregados = [];
-
-  return <Cart productosAgregados={productosAgregados} />;
+  return (
+    <Cart
+      cart={cart}
+      clearCart={clearCart}
+      deleteById={deleteById}
+      total={total}
+      clearCartAlert={clearCartAlert}
+    />
+  );
 };
 
 export default CartContainer;
