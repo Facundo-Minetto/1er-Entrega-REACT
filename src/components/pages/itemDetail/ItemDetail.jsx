@@ -1,5 +1,6 @@
 import { CounterContainer } from "../../common/counter/CounterContainer";
 import "./ItemDetail.css";
+
 const ItemDetail = ({ item, onAdd, initial }) => {
   return (
     <div>

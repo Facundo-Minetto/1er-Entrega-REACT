@@ -1,15 +1,16 @@
 import { CartWidget } from "../../common/cartWidget/CartWidget";
 import { Link } from "react-router-dom";
+import "./Navbar.css";
 export const Navbar = () => {
   return (
     <div>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <Link to="/" class="navbar-brand" href="#">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <div className="container-fluid">
+          <Link to="/" className="navbar-brand">
             CLOTHESBrand
           </Link>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
@@ -17,45 +18,33 @@ export const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="/">
                   Productos
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+              <li className="nav-item">
+                <a className="nav-link" href="#">
                   Contacto
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+              <li className="nav-item">
+                <a className="nav-link" href="#">
                   Guia de talles
                 </a>
               </li>
             </ul>
             <CartWidget />
           </div>
-          <div class="categorias">
-            <ul>
-              <Link to="/" class="nav-item">
-                <a class="nav-link" href="#">
-                  Todas
-                </a>
-              </Link>
-              <Link to="/category/remeras" class="nav-item">
-                <a class="nav-link" href="#">
-                  Remeras
-                </a>
-              </Link>
-              <Link to="/category/buzos" class="nav-item">
-                <a class="nav-link" href="#">
-                  Buzos
-                </a>
-              </Link>
+          <div className="containerCategories">
+            <ul className="categories">
+              <Link to="/">Todas</Link>
+              <Link to="/category/remeras">Remeras</Link>
+              <Link to="/category/buzos">Buzos</Link>
             </ul>
           </div>
         </div>
