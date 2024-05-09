@@ -16,4 +16,4 @@
 
 #### Ejemplo de navegacion en la pagina:
 
-! [GIF NAVEGACION](./src/assets/2DA_PreEntregaGIF.gif)
+![GIF NAVEGACION](./src/assets/2DA_PreEntregaGIF.gif)
