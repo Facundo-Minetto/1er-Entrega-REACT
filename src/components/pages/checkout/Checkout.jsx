@@ -1,10 +1,19 @@
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "../../../context/CartContext";
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
+import { db } from "../../../firebaseConfig";
 export const Checkout = () => {
+  const { cart, getTotalPrice, clearCart } = useContext(CartContext);
+
+  const [orderId, setOrderId] = useState(null);
+
+  let total = getTotalPrice();
+
   const [info, setInfo] = useState({
-    nombre: "",
-    telefono: "",
+    name: "",
+    phone: "",
     email: "",
   });
 
@@ -15,37 +24,60 @@ export const Checkout = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(info);
+    let obj = {
+      buyer: info,
+      items: cart,
+      total: total,
+    };
+
+    let ordersCollection = collection(db, "orders");
+    addDoc(ordersCollection, obj)
+      .then((res) => setOrderId(res.id))
+      .catch((error) => console.log(error));
+
+    //update de los productos que compramos
+    // let x = productsCollection(db, "products")
+
+    cart.forEach((product) => {
+      let refDoc = doc(db, "products", product.id);
+      updateDoc(refDoc, { stock: product.stock - product.quantity });
+    });
+
+    clearCart();
   };
 
   return (
     <div style={{ padding: "100px" }}>
-      <form onSubmit={handleSubmit}>
-        <TextField
-          variant="outlined"
-          type="text"
-          label="Nombre"
-          onChange={handleChange}
-          name="nombre"
-        />
-        <TextField
-          variant="outlined"
-          type="text"
-          label="Telefono"
-          onChange={handleChange}
-          name="telefono"
-        />
-        <TextField
-          variant="outlined"
-          type="text"
-          label="Email"
-          onChange={handleChange}
-          name="email"
-        />
-        <Button variant="contained" type="submit">
-          Comprar
-        </Button>
-      </form>
+      {orderId ? (
+        <h1>Su id es: {orderId} </h1>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <TextField
+            variant="outlined"
+            type="text"
+            label="Nombre"
+            onChange={handleChange}
+            name="name"
+          />
+          <TextField
+            variant="outlined"
+            type="text"
+            label="Telefono"
+            onChange={handleChange}
+            name="phone"
+          />
+          <TextField
+            variant="outlined"
+            type="text"
+            label="Email"
+            onChange={handleChange}
+            name="email"
+          />
+          <Button variant="contained" type="submit">
+            Comprar
+          </Button>
+        </form>
+      )}
     </div>
   );
 };
